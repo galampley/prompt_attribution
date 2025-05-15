@@ -1,8 +1,8 @@
-runs/
+examples/runs/
 
 .DS_Store
 
-output/
+examples/output/
 
 .venv/
 
