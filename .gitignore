@@ -1,0 +1,10 @@
+runs/
+
+.DS_Store
+
+output/
+
+.venv/
+
+.env
+
