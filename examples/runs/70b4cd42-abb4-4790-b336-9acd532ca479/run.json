@@ -1,0 +1,147 @@
+{
+  "id": "70b4cd42-abb4-4790-b336-9acd532ca479",
+  "timestamp": "2025-05-14T15:49:44.920623",
+  "prompt": "### Role You are a creative pedagogue.\n\n### Task Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies.\n\n### Style Use simple language accessible to non-technical readers. Avoid jargon and complex terminology.",
+  "completion": "Alright, imagine you have a big box of LEGO bricks. Today, we're going to use them to understand a really cool science experiment called the double-slit experiment. It's like a magic trick that helps us learn about tiny things called particles, which are even smaller than LEGO bricks!\n\nLet's start by pretending that these LEGO bricks are little balls. Now, imagine you have a wall with two narrow doors or \"slits\" in it. You can throw the LEGO balls at the wall, and they can only go through the slits to the other side.\n\nFirst, let's cover one of the slits and throw the LEGO balls at the wall. Most of the balls will hit the wall and bounce back, but some will go through the open slit and land in a straight line on the other side. This is pretty much what you'd expect, right?\n\nNow, let's open both slits and throw the LEGO balls again. You might think that the balls would just make two straight lines on the other side, one for each slit. But here's where the magic happens!\n\nIn the real double-slit experiment, when tiny particles like light or electrons are used instead of LEGO balls, they don't just make two lines. Instead, they create a pattern of many lines, like stripes on a zebra! This is called an \"interference pattern.\"\n\nIt's as if the particles are playing a game, where they go through both slits at the same time and then dance around to make this special pattern. Scientists were super surprised by this because it showed that these tiny particles can act like waves, not just little balls.\n\nSo, the double-slit experiment is important because it helps us understand that the world of tiny particles is full of surprises and behaves differently than the things we see every day, like our LEGO bricks. It's like discovering a secret dance that only tiny things know how to do!",
+  "segments": [
+    {
+      "start": 0,
+      "end": 39,
+      "text": "### Role You are a creative pedagogue.\n",
+      "id": 0
+    },
+    {
+      "start": 39,
+      "end": 143,
+      "text": "\n### Task Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies.\n",
+      "id": 1
+    },
+    {
+      "start": 143,
+      "end": 248,
+      "text": "\n### Style Use simple language accessible to non-technical readers. Avoid jargon and complex terminology.",
+      "id": 2
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.10546999818288039,
+      "elapsed_ms": 8732,
+      "sentence_deltas": [
+        0.23407875423273772,
+        0.7978197217155083,
+        0.5454720148694211,
+        0.7455903386198033,
+        0.7801174299497878,
+        0.6263821655250705,
+        0.5570125066407314,
+        0.60835430304743,
+        0.748845187451904,
+        0.7339034296293289,
+        0.7480247504920765,
+        0.7164132211158436,
+        0.6794885306999475,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 1,
+      "delta_cos": 0.6445828094241539,
+      "elapsed_ms": 12945,
+      "sentence_deltas": [
+        0.7779975269272866,
+        0.7129806462581056,
+        0.8810336708428744,
+        0.7943552885636611,
+        0.7552036902008706,
+        0.8390173968066328,
+        0.8733919303916158,
+        0.8721849232691783,
+        0.7550866390230144,
+        0.787743427247041,
+        0.8254952743019315,
+        0.789162460225505,
+        0.8454139295015963,
+        0.838567685595877,
+        0.7646825160765522,
+        0.839529097274181,
+        0.8830290407640446,
+        0.7769359173796859
+      ]
+    },
+    {
+      "span_id": 2,
+      "delta_cos": 0.08067500981207432,
+      "elapsed_ms": 13574,
+      "sentence_deltas": [
+        0.09419448079495496,
+        0.7618062383115439,
+        0.6517793399897822,
+        0.30027862254211835,
+        0.8660045460768192,
+        0.4395066192475928,
+        0.4612613454922805,
+        0.6398352835658212,
+        0.7105456148756213,
+        0.8190004913648319,
+        0.7296793231946532,
+        0.26348350909917184,
+        0.6876188828836889,
+        0.5889236532771402,
+        0.7909982391411066,
+        0.8340105902142387,
+        0.6694879419311852,
+        0.7606646476327059
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    1,
+    0,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "response_sentence_deltas": [
+    0.7779975269272866,
+    0.7978197217155083,
+    0.8810336708428744,
+    0.7943552885636611,
+    0.8660045460768192,
+    0.8390173968066328,
+    0.8733919303916158,
+    0.8721849232691783,
+    0.7550866390230144,
+    0.8190004913648319,
+    0.8254952743019315,
+    0.789162460225505,
+    0.8454139295015963,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

@@ -1,0 +1,132 @@
+Below is a Python script that performs the requested data analysis tasks using pandas, matplotlib, and seaborn. The script includes docstrings, comments, and follows PEP 8 style guidelines.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+def load_data(file_path):
+    """
+    Load the CSV data into a pandas DataFrame.
+
+    Parameters:
+    file_path (str): The path to the CSV file.
+
+    Returns:
+    pd.DataFrame: The loaded data.
+    """
+    try:
+        data = pd.read_csv(file_path, parse_dates=['date'])
+        return data
+    except Exception as e:
+        print(f"Error loading data: {e}")
+        return None
+
+def preprocess_data(data):
+    """
+    Preprocess the data by handling missing values and adding necessary columns.
+
+    Parameters:
+    data (pd.DataFrame): The raw data.
+
+    Returns:
+    pd.DataFrame: The preprocessed data.
+    """
+    # Drop rows with missing values in critical columns
+    data.dropna(subset=['transaction_id', 'customer_id', 'date', 'product_id', 'quantity', 'price'], inplace=True)
+
+    # Calculate total price for each transaction
+    data['total_price'] = data['quantity'] * data['price']
+
+    return data
+
+def total_revenue_per_month(data):
+    """
+    Calculate and plot total revenue per month.
+
+    Parameters:
+    data (pd.DataFrame): The preprocessed data.
+    """
+    data['month'] = data['date'].dt.to_period('M')
+    monthly_revenue = data.groupby('month')['total_price'].sum()
+
+    plt.figure(figsize=(10, 6))
+    monthly_revenue.plot(kind='bar', color='skyblue')
+    plt.title('Total Revenue per Month')
+    plt.xlabel('Month')
+    plt.ylabel('Revenue')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def customer_retention_rate(data):
+    """
+    Calculate and plot customer retention rate by cohort.
+
+    Parameters:
+    data (pd.DataFrame): The preprocessed data.
+    """
+    data['order_month'] = data['date'].dt.to_period('M')
+    data['cohort'] = data.groupby('customer_id')['order_month'].transform('min')
+
+    cohort_data = data.groupby(['cohort', 'order_month']).agg(n_customers=('customer_id', 'nunique')).reset_index()
+    cohort_pivot = cohort_data.pivot_table(index='cohort', columns='order_month', values='n_customers')
+
+    cohort_size = cohort_pivot.iloc[:, 0]
+    retention_matrix = cohort_pivot.divide(cohort_size, axis=0)
+
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(retention_matrix, annot=True, fmt=".0%", cmap="YlGnBu")
+    plt.title('Customer Retention Rate by Cohort')
+    plt.xlabel('Order Month')
+    plt.ylabel('Cohort Month')
+    plt.show()
+
+def average_order_value_trend(data):
+    """
+    Calculate and plot average order value trend over time.
+
+    Parameters:
+    data (pd.DataFrame): The preprocessed data.
+    """
+    data['order_month'] = data['date'].dt.to_period('M')
+    monthly_aov = data.groupby('order_month').agg({'total_price': 'sum', 'transaction_id': 'nunique'})
+    monthly_aov['aov'] = monthly_aov['total_price'] / monthly_aov['transaction_id']
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(monthly_aov.index.astype(str), monthly_aov['aov'], marker='o', linestyle='-')
+    plt.title('Average Order Value Trend Over Time')
+    plt.xlabel('Month')
+    plt.ylabel('Average Order Value')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def top_10_products_by_revenue(data):
+    """
+    Identify and print the top 10 products by revenue.
+
+    Parameters:
+    data (pd.DataFrame): The preprocessed data.
+    """
+    product_revenue = data.groupby('product_id')['total_price'].sum().sort_values(ascending=False).head(10)
+    print("Top 10 Products by Revenue:")
+    print(product_revenue)
+
+def identify_customers_at_risk(data):
+    """
+    Identify customers at risk of churn.
+
+    Parameters:
+    data (pd.DataFrame): The preprocessed data.
+
+    Returns:
+    pd.DataFrame: Customers at risk of churn.
+    """
+    last_purchase = data.groupby('customer_id')['date'].max()
+    current_date = data['date'].max()
+    churn_threshold = 90  # days
+
+    at_risk_customers = last_purchase[current_date - last_purchase > pd.Timedelta(days=churn_threshold)]
+   

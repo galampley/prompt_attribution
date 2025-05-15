@@ -1,0 +1,120 @@
+{
+  "id": "7f95cae9-c22c-4d7a-a51b-b9ea98462900",
+  "timestamp": "2025-05-14T16:36:42.787623",
+  "prompt": "You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, produce a comprehensive bullet-point risk summary (max 120 words) and label each identified risk with a High/Medium/Low impact rating. Focus primarily on competitive threats, regulatory challenges, and supply chain vulnerabilities. After the bullet points, provide 2-3 sentences explaining which risk you believe investors are currently underestimating the most.",
+  "completion": "- **Competitive Threats (High Impact):** Intense competition from established tech giants and emerging startups could erode market share and pressure pricing strategies.\n- **Regulatory Challenges (Medium Impact):** Increasing global data privacy regulations may require significant compliance investments and could limit operational flexibility.\n- **Supply Chain Vulnerabilities (Medium Impact):** Dependence on a limited number of suppliers for critical hardware components poses risks of disruption and cost volatility.\n- **Technological Obsolescence (Low Impact):** Rapid technological advancements necessitate continuous innovation to maintain competitive advantage.\n\nInvestors may be underestimating the impact of regulatory challenges. As global data privacy laws become more stringent, the costs and complexities of compliance could significantly affect operational efficiency and profitability, especially as the company expands into new international markets.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 160,
+      "text": "You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, produc",
+      "id": 0
+    },
+    {
+      "start": 140,
+      "end": 288,
+      "text": "ing provider, produce a comprehensive bullet-point risk summary (max 120 words) and label each identified risk with a High/Medium/Low impact rating.",
+      "id": 1
+    },
+    {
+      "start": 268,
+      "end": 385,
+      "text": "m/Low impact rating. Focus primarily on competitive threats, regulatory challenges, and supply chain vulnerabilities.",
+      "id": 2
+    },
+    {
+      "start": 365,
+      "end": 516,
+      "text": "ain vulnerabilities. After the bullet points, provide 2-3 sentences explaining which risk you believe investors are currently underestimating the most.",
+      "id": 3
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.12096481147317972,
+      "elapsed_ms": 4263,
+      "sentence_deltas": [
+        0.12882586480286007,
+        0.11489887036137081,
+        0.20551198811122295,
+        0.24386215493510977,
+        0.5788768580092839,
+        0.7126541503993922
+      ]
+    },
+    {
+      "span_id": 1,
+      "delta_cos": 0.7770956540378516,
+      "elapsed_ms": 1571,
+      "sentence_deltas": [
+        0.8736452055715531,
+        0.7910427045837797,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 2,
+      "delta_cos": 0.17637660756746432,
+      "elapsed_ms": 5138,
+      "sentence_deltas": [
+        0.4834300783808029,
+        0.15285551788574459,
+        0.5188743768162516,
+        0.16659837583242743,
+        0.6738444910643837,
+        0.6701772929094292
+      ]
+    },
+    {
+      "span_id": 3,
+      "delta_cos": 0.06962839249801156,
+      "elapsed_ms": 4953,
+      "sentence_deltas": [
+        0.013345990753088177,
+        0.07883943086556622,
+        0.10312177296937919,
+        0.08288604942116273,
+        0.6040585009005309,
+        1.0
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "response_sentence_deltas": [
+    0.8736452055715531,
+    0.7910427045837797,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "rewrite_suggestions": {
+    "seg1_sent0": [
+      "{",
+      "\"1\": {",
+      "\"rewrite\": \"As a cloud computing provider, generate a detailed bullet-point risk summary (maximum 120 words) and assign a High/Medium/Low impact rating to each identified risk.\",",
+      "\"explanation\": \"This rewrite maintains the original intent but uses more formal language by replacing 'produce' with 'generate' and 'comprehensive' with 'detailed.' This aligns with the user's request for a more formal tone.\"",
+      "},",
+      "\"2\": {",
+      "\"rewrite\": \"For a cloud computing provider, create a thorough bullet-point risk summary (up to 120 words) and categorize each risk with a High/Medium/Low impact rating.\",",
+      "\"explanation\": \"This version uses 'create' instead of 'produce' and 'thorough' instead of 'comprehensive,' which adds a formal tone. The phrase 'categorize each risk' is also more formal than 'label each identified risk,' addressing the user's feedback.\"",
+      "}",
+      "}"
+    ]
+  }
+}

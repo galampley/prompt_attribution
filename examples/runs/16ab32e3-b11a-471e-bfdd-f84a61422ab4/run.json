@@ -1,0 +1,118 @@
+{
+  "id": "16ab32e3-b11a-471e-bfdd-f84a61422ab4",
+  "timestamp": "2025-05-14T15:21:46.692762",
+  "prompt": "\n### Role\nYou are a helpful content writer who specializes in blog posts.\n\n### Task\nWrite an engaging introduction paragraph about artificial intelligence.\n\n### Style Guidance\nUse simple language accessible to non-technical readers.\nAvoid jargon and complex terminology.\nInclude at least one rhetorical question.\n\n### Constraints\nMaximum length: 150 words.\nInclude the phrase \"digital revolution\" somewhere.\nDo not mention specific AI products by name.\n",
+  "completion": "Imagine a world where machines can learn, adapt, and even make decisions on their own. This isn't a scene from a science fiction movie; it's the reality of artificial intelligence, a key player in today's digital revolution. But what exactly is AI, and why is it transforming our lives? At its core, artificial intelligence is about creating systems that can perform tasks typically requiring human intelligence, like understanding language or recognizing patterns. From enhancing our daily routines to revolutionizing industries, AI is reshaping the way we live and work. Have you ever wondered how your smartphone seems to know what you need before you do? That's AI in action, making our lives more convenient and connected. As we stand on the brink of this technological frontier, the possibilities seem endless, sparking both excitement and curiosity about what the future holds.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 74,
+      "text": "\n### Role\nYou are a helpful content writer who specializes in blog posts.\n",
+      "id": 0
+    },
+    {
+      "start": 74,
+      "end": 156,
+      "text": "\n### Task\nWrite an engaging introduction paragraph about artificial intelligence.\n",
+      "id": 1
+    },
+    {
+      "start": 156,
+      "end": 313,
+      "text": "\n### Style Guidance\nUse simple language accessible to non-technical readers.\nAvoid jargon and complex terminology.\nInclude at least one rhetorical question.\n",
+      "id": 2
+    },
+    {
+      "start": 313,
+      "end": 453,
+      "text": "\n### Constraints\nMaximum length: 150 words.\nInclude the phrase \"digital revolution\" somewhere.\nDo not mention specific AI products by name.\n",
+      "id": 3
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.08462017050640813,
+      "elapsed_ms": 16,
+      "sentence_deltas": [
+        0.1197317249034906,
+        0.31129043164115033,
+        0.46689482928793935,
+        0.37083065715427244,
+        0.42782116961607,
+        0.7171133754424656,
+        0.46221692927206204,
+        0.4740023418307434
+      ]
+    },
+    {
+      "span_id": 1,
+      "delta_cos": 0.4394821359689467,
+      "elapsed_ms": 17,
+      "sentence_deltas": [
+        0.755772923451243,
+        0.829437382740313,
+        0.7427469443815382,
+        0.8652006127240346,
+        0.4761395249611621,
+        0.8005002144341508,
+        0.7383122982689624,
+        0.7202611522857735
+      ]
+    },
+    {
+      "span_id": 2,
+      "delta_cos": 0.16725993051410548,
+      "elapsed_ms": 17,
+      "sentence_deltas": [
+        0.5761180715818286,
+        0.43074315863786516,
+        0.3806888163127473,
+        0.5280401046034913,
+        0.3787708700575678,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 3,
+      "delta_cos": 0.10687794774868309,
+      "elapsed_ms": 18,
+      "sentence_deltas": [
+        0.09276453897362291,
+        0.5499958430903151,
+        0.28293326838870203,
+        0.49907966198905285,
+        0.3562889369878828,
+        0.701927083964422,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2
+  ],
+  "response_sentence_deltas": [
+    0.755772923451243,
+    0.829437382740313,
+    0.7427469443815382,
+    0.8652006127240346,
+    0.4761395249611621,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

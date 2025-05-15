@@ -1,0 +1,117 @@
+To accomplish the data analysis task, we will write a Python script that reads a CSV file containing e-commerce transactions and computes the specified metrics. We'll use the `pandas` library for data manipulation and `matplotlib`/`seaborn` for visualization. Here's the complete code:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+def read_data(file_path):
+    """
+    Reads the CSV file into a pandas DataFrame.
+    
+    :param file_path: str, path to the CSV file
+    :return: DataFrame
+    """
+    try:
+        df = pd.read_csv(file_path, parse_dates=['date'])
+        return df
+    except Exception as e:
+        print(f"Error reading the CSV file: {e}")
+        return None
+
+def preprocess_data(df):
+    """
+    Preprocesses the data by handling missing values and adding necessary columns.
+    
+    :param df: DataFrame, raw data
+    :return: DataFrame, preprocessed data
+    """
+    # Drop rows with missing values in critical columns
+    df.dropna(subset=['transaction_id', 'customer_id', 'date', 'product_id', 'quantity', 'price'], inplace=True)
+    
+    # Calculate total revenue for each transaction
+    df['revenue'] = df['quantity'] * df['price']
+    
+    # Extract month and year for monthly analysis
+    df['month_year'] = df['date'].dt.to_period('M')
+    
+    return df
+
+def total_revenue_per_month(df):
+    """
+    Plots total revenue per month as a bar chart.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    monthly_revenue = df.groupby('month_year')['revenue'].sum()
+    monthly_revenue.plot(kind='bar', figsize=(12, 6), title='Total Revenue per Month')
+    plt.xlabel('Month-Year')
+    plt.ylabel('Revenue')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def customer_retention_rate_by_cohort(df):
+    """
+    Plots customer retention rate by cohort as a heatmap.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    df['cohort_month'] = df.groupby('customer_id')['date'].transform('min').dt.to_period('M')
+    cohort_data = df.groupby(['cohort_month', 'month_year']).agg(n_customers=('customer_id', 'nunique')).reset_index()
+    cohort_pivot = cohort_data.pivot_table(index='cohort_month', columns='month_year', values='n_customers')
+    cohort_size = cohort_pivot.iloc[:, 0]
+    retention_matrix = cohort_pivot.divide(cohort_size, axis=0)
+    
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(retention_matrix, annot=True, fmt=".0%", cmap="YlGnBu")
+    plt.title('Customer Retention Rate by Cohort')
+    plt.xlabel('Month-Year')
+    plt.ylabel('Cohort Month')
+    plt.show()
+
+def average_order_value_trend(df):
+    """
+    Plots average order value trend over time as a line chart.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    df['order_value'] = df['revenue']
+    aov_trend = df.groupby('month_year')['order_value'].mean()
+    aov_trend.plot(kind='line', figsize=(12, 6), title='Average Order Value Trend Over Time')
+    plt.xlabel('Month-Year')
+    plt.ylabel('Average Order Value')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def top_10_products_by_revenue(df):
+    """
+    Prints the top 10 products by revenue.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    product_revenue = df.groupby('product_id')['revenue'].sum().nlargest(10)
+    print("Top 10 Products by Revenue:")
+    print(product_revenue)
+
+def identify_customers_at_risk_of_churn(df):
+    """
+    Identifies customers at risk of churn based on their last purchase date.
+    
+    :param df: DataFrame, preprocessed data
+    :return: DataFrame, customers at risk of churn
+    """
+    last_purchase = df.groupby('customer_id')['date'].max()
+    churn_threshold = last_purchase.max() - pd.DateOffset(months=3)
+    at_risk_customers = last_purchase[last_purchase < churn_threshold]
+    print("Customers at Risk of Churn:")
+    print(at_risk_customers)
+    return at_risk_customers
+
+def main(file_path):
+    """
+    Main function to execute the data analysis tasks.
+    
+    :param file_path: str, path to the CSV file

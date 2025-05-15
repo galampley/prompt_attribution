@@ -1,0 +1,117 @@
+To perform a data analysis task on the given CSV file, we will use the pandas library for data manipulation and matplotlib/seaborn for visualization. The task will include loading the data, handling missing values, and performing some basic analysis. Below is a Python script that accomplishes this:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def load_data(file_path):
+    """
+    Load the CSV data into a pandas DataFrame.
+
+    Parameters:
+    file_path (str): The path to the CSV file.
+
+    Returns:
+    pd.DataFrame: The loaded data as a DataFrame.
+    """
+    try:
+        data = pd.read_csv(file_path)
+        return data
+    except FileNotFoundError:
+        print("The file was not found.")
+        return None
+
+def handle_missing_values(df):
+    """
+    Handle missing values in the DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame with potential missing values.
+
+    Returns:
+    pd.DataFrame: The DataFrame with missing values handled.
+    """
+    # Drop rows where 'transaction_id', 'customer_id', or 'product_id' is missing
+    df = df.dropna(subset=['transaction_id', 'customer_id', 'product_id'])
+
+    # Fill missing 'quantity' and 'price' with median values
+    df['quantity'].fillna(df['quantity'].median(), inplace=True)
+    df['price'].fillna(df['price'].median(), inplace=True)
+
+    # Fill missing 'country' with the mode
+    df['country'].fillna(df['country'].mode()[0], inplace=True)
+
+    return df
+
+def analyze_data(df):
+    """
+    Perform basic analysis on the DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to analyze.
+
+    Returns:
+    None
+    """
+    # Convert 'date' to datetime format
+    df['date'] = pd.to_datetime(df['date'])
+
+    # Calculate total sales
+    df['total_sales'] = df['quantity'] * df['price']
+
+    # Group by country and calculate total sales
+    sales_by_country = df.groupby('country')['total_sales'].sum().sort_values(ascending=False)
+
+    # Plot total sales by country
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x=sales_by_country.index, y=sales_by_country.values)
+    plt.title('Total Sales by Country')
+    plt.xlabel('Country')
+    plt.ylabel('Total Sales')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+    # Group by date and calculate total sales
+    sales_by_date = df.groupby('date')['total_sales'].sum()
+
+    # Plot total sales over time
+    plt.figure(figsize=(12, 6))
+    sales_by_date.plot()
+    plt.title('Total Sales Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Total Sales')
+    plt.tight_layout()
+    plt.show()
+
+def main():
+    """
+    Main function to execute the data analysis task.
+
+    Returns:
+    None
+    """
+    # Load the data
+    file_path = 'path_to_your_file.csv'  # Replace with your file path
+    data = load_data(file_path)
+
+    if data is not None:
+        # Handle missing values
+        data = handle_missing_values(data)
+
+        # Analyze the data
+        analyze_data(data)
+
+if __name__ == "__main__":
+    main()
+```
+
+### Key Points:
+- **Loading Data**: The `load_data` function reads the CSV file into a DataFrame.
+- **Handling Missing Values**: The `handle_missing_values` function drops rows with critical missing values and fills others with median or mode.
+- **Data Analysis**: The `analyze_data` function performs basic analysis, including calculating total sales and visualizing sales by country and over time.
+- **Visualization**: Uses matplotlib and seaborn for plotting.
+- **Performance**: The script is optimized for large datasets by using efficient pandas operations and avoiding unnecessary loops.
+
+Make sure to replace `'path_to_your_file.csv'` with the actual path to your CSV file. This script is designed to be production-ready, following PEP 8 style guidelines and including docstrings for clarity.

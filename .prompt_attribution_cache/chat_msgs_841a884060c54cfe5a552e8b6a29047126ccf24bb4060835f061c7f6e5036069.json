@@ -1,0 +1,7 @@
+```json
+{
+    "rewrite_1": "As a financial analyst, create a detailed bullet-point summary of risks (up to 120 words) from the provided 10-K excerpt of a major cloud computing company. Assign a High/Medium/Low impact rating to each risk identified.",
+    "rewrite_2": "Generate a concise bullet-point summary of risks (maximum 120 words) from the given 10-K excerpt of a leading cloud computing firm. Each risk should be labeled with a High/Medium/Low impact rating.",
+    "explanation": "The original prompt segment was rewritten to ensure clarity and formality. The revised versions maintain the requirement for a concise summary and impact rating, while using more formal language to align with the user's request for a more formal tone."
+}
+```

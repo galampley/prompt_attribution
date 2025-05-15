@@ -1,0 +1,10 @@
+{
+    "1": {
+        "rewrite": "As a cloud computing provider, generate a detailed bullet-point risk summary (maximum 120 words) and assign a High/Medium/Low impact rating to each identified risk.",
+        "explanation": "This rewrite maintains the original intent but uses more formal language by replacing 'produce' with 'generate' and 'comprehensive' with 'detailed.' This aligns with the user's request for a more formal tone."
+    },
+    "2": {
+        "rewrite": "For a cloud computing provider, create a thorough bullet-point risk summary (up to 120 words) and categorize each risk with a High/Medium/Low impact rating.",
+        "explanation": "This version uses 'create' instead of 'produce' and 'thorough' instead of 'comprehensive,' which adds a formal tone. The phrase 'categorize each risk' is also more formal than 'label each identified risk,' addressing the user's feedback."
+    }
+}

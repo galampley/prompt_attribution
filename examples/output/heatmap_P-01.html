@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Attribution Heat Map</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin: 0; padding: 20px; }
+        h1 { font-size: 1.5em; margin-bottom: 1em; }
+        h3 { font-size: 1.2em; margin-bottom: 0.5em; }
+    </style>
+</head>
+<body>
+    <h1>Prompt Attribution Heat Map</h1>
+    <div id="prompt-heatmap-93d04d10" class="prompt-container">
+<h3>Prompt</h3>
+<div class="prompt-content">
+<style>
+.prompt-container { margin: 1.5em 0; padding: 1em; border: 1px solid #ddd; border-radius: 4px; }
+.prompt-container h3 { margin-top: 0; display: flex; justify-content: space-between; align-items: center; }
+.prompt-content { font-family: monospace; white-space: pre-wrap; line-height: 1.5; padding: 1em; border: 1px solid #ccc; border-radius: 4px; }
+.segment { padding: 2px 0; display: inline; }
+.segment-tooltip { position: absolute; background: #f8f8f8; border: 1px solid #ddd; padding: 8px; border-radius: 4px; font-size: 12px; max-width: 300px; z-index: 100; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+</style>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05426901156040415);" title="Segment 0: Impact score 0.0045" data-score="0.0045">You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, produc</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 1: Impact score 1.0000" data-score="1.0000">ing provider, produce a comprehensive bullet-point risk summary (max 120 words) and label each identified risk with a High/Medium/Low impact rating.</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.10921704990940048);" title="Segment 2: Impact score 0.0623" data-score="0.0623">m/Low impact rating. Focus primarily on competitive threats, regulatory challenges, and supply chain vulnerabilities.</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05);" title="Segment 3: Impact score 0.0000" data-score="0.0000">ain vulnerabilities. After the bullet points, provide 2-3 sentences explaining which risk you believe investors are currently underestimating the most.</span>
+</div>
+</div>
+
+        <div class="model-response-container" id="model-response-f4b48544">
+            <h3>
+                Model Response
+                <button class="toggle-button" onclick="toggleCollapse('collapse-model-response-f4b48544')">
+                    <span class="toggle-text">Hide</span>
+                </button>
+            </h3>
+            <div class="model-response-content" id="collapse-model-response-f4b48544">
+                <pre class="model-response"><span style="background-color: rgba(255, 0, 0, 1.0);">- **Competitive Threats (High Impact):** Intense competition from established tech giants and emerging startups could erode market share and pressure pricing strategies.</span> <span style="background-color: rgba(255, 0, 0, 1.0);">- **Regulatory Challenges (Medium Impact):** Increasing scrutiny and potential regulatory changes in data privacy and cross-border data transfers could lead to compliance costs and operational adjustments.</span> <span style="background-color: rgba(255, 0, 0, 1.0);">- **Supply Chain Vulnerabilities (Medium Impact):** Dependence on a limited number of suppliers for critical hardware components may lead to disruptions and increased costs due to geopolitical tensions or natural disasters.</span> <span style="background-color: rgba(255, 0, 0, 1.0);">Investors may be underestimating the regulatory challenges, particularly in data privacy and cross-border data transfers.</span> <span style="background-color: rgba(255, 0, 0, 1.0);">As global regulatory environments become more stringent, the costs and complexities of compliance could significantly impact operations and profitability, especially if new regulations are enacted swiftly.</span></pre>
+            </div>
+        </div>
+        
+        <style>
+        .model-response-container {
+            margin: 1.5em 0;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .model-response-container h3 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .model-response {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .toggle-button {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .toggle-button:hover {
+            background-color: #e5e5e5;
+        }
+        </style>
+        
+        <script>
+        function toggleCollapse(id) {
+            const element = document.getElementById(id);
+            const button = element.previousElementSibling.querySelector('.toggle-button');
+            const textSpan = button.querySelector('.toggle-text');
+            
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+                textSpan.textContent = 'Hide';
+            } else {
+                element.style.display = 'none';
+                textSpan.textContent = 'Show';
+            }
+        }
+        </script>
+        
+<div class="matrix-container" id="matrix-30b75f9a">
+<h3>Prompt Segment ↔ Response Sentence Influence Matrix</h3>
+<div class="matrix-scroll">
+<table class="influence-matrix">
+<tr><th class='corner'></th><th class='col-header'>0</th><th class='col-header'>1</th><th class='col-header'>2</th><th class='col-header'>3</th><th class='col-header'>4</th></tr>
+<tr><th class='row-header'>0</th>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.17189470079171099)" title="Δ=0.1283"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.17191889177764103)" title="Δ=0.1283"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.18266629651597338)" title="Δ=0.1396"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.6396151585478801)" title="Δ=0.6206"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.6738021176719677)" title="Δ=0.6566"></td>
+</tr>
+<tr><th class='row-header'>1</th>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.8800164206753204)" title="Δ=0.8737"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.8199879158880623)" title="Δ=0.8105"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 1.0)" title="Δ=1.0000"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 1.0)" title="Δ=1.0000"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 1.0)" title="Δ=1.0000"></td>
+</tr>
+<tr><th class='row-header'>2</th>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.4933396720526042)" title="Δ=0.4667"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.21165000145341772)" title="Δ=0.1702"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.5618606337743488)" title="Δ=0.5388"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.6874784356096166)" title="Δ=0.6710"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.6371527193754075)" title="Δ=0.6181"></td>
+</tr>
+<tr><th class='row-header'>3</th>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.27535391302282747)" title="Δ=0.2372"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.5970190062972415)" title="Δ=0.5758"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.5476354176664496)" title="Δ=0.5238"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.7064021425583721)" title="Δ=0.6909"></td>
+<td class="cell" style="background-color:rgba(0, 0, 0, 0.6802813494283627)" title="Δ=0.6635"></td>
+</tr>
+</table></div>
+<style>
+.matrix-container { margin-top:2em; }
+.matrix-scroll { overflow-x:auto; border:1px solid #ddd; padding:4px; }
+.influence-matrix { border-collapse: collapse; }
+.cell { width:56px; height:56px; }
+.influence-matrix th { font-size: 12px; position: sticky; z-index: 2; background:#f5f5f5; }
+.col-header { top:0; }
+.row-header { left:0; }
+.corner { top:0; left:0; }
+</style>
+</div>
+<div class="sentence-table-container">
+<h3>Response Sentence Impact Scores</h3>
+<table id="sentence-table-d5ec1299" class="sentence-table">
+<thead>
+<tr>
+<th onclick="sort_sentence_table_d5ec1299(0, 'numeric')" class="sortable">Response&nbsp;Sentence&nbsp;#</th>
+<th onclick="sort_sentence_table_d5ec1299(1, 'text')" class="sortable">Sentence&nbsp;Preview</th>
+<th onclick="sort_sentence_table_d5ec1299(2, 'numeric')" class="sortable">Prompt&nbsp;Segment&nbsp;ID</th>
+<th onclick="sort_sentence_table_d5ec1299(3, 'text')" class="sortable">Prompt&nbsp;Preview</th>
+<th onclick="sort_sentence_table_d5ec1299(4, 'numeric')" class="sortable">Sentence&nbsp;Δ</th>
+<th onclick="sort_sentence_table_d5ec1299(5, 'numeric')" class="sortable">Seg&nbsp;Norm&nbsp;Score</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>- **Competitive Threats (High Impact):** Intense competition from established…</td>
+<td>1</td>
+<td>ing provider, produce a comprehensive bullet-point risk summary (max 120 words)…</td>
+<td>0.8737</td>
+<td>1.0000</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>- **Regulatory Challenges (Medium Impact):** Increasing scrutiny and potential…</td>
+<td>1</td>
+<td>ing provider, produce a comprehensive bullet-point risk summary (max 120 words)…</td>
+<td>0.8105</td>
+<td>1.0000</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>- **Supply Chain Vulnerabilities (Medium Impact):** Dependence on a limited…</td>
+<td>1</td>
+<td>ing provider, produce a comprehensive bullet-point risk summary (max 120 words)…</td>
+<td>1.0000</td>
+<td>1.0000</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>Investors may be underestimating the regulatory challenges, particularly in…</td>
+<td>1</td>
+<td>ing provider, produce a comprehensive bullet-point risk summary (max 120 words)…</td>
+<td>1.0000</td>
+<td>1.0000</td>
+</tr>
+<tr data-id="4">
+<td>4</td>
+<td>As global regulatory environments become more stringent, the costs and…</td>
+<td>1</td>
+<td>ing provider, produce a comprehensive bullet-point risk summary (max 120 words)…</td>
+<td>1.0000</td>
+<td>1.0000</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .sentence-table-container {{
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }}
+        .sentence-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }}
+        .sentence-table th, .sentence-table td {{
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }}
+        .sentence-table th {{
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }}
+        .sentence-table th.sortable:hover {{
+            background-color: #e5e5e5;
+        }}
+        .sentence-table th.sorted-asc::after {{
+            content: " ↑";
+            font-size: 0.8em;
+        }}
+        .sentence-table th.sorted-desc::after {{
+            content: " ↓";
+            font-size: 0.8em;
+        }}
+        .sentence-table tr:hover {{
+            background-color: #f9f9f9;
+        }}
+        </style>
+        
+
+        <script>
+        function sort_sentence_table_d5ec1299(columnIndex, type) {
+            const table = document.getElementById('sentence-table-d5ec1299');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by sentence delta (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('sentence-table-d5ec1299');
+            const deltaHeader = table.querySelectorAll('th')[4];
+            deltaHeader.click();
+            deltaHeader.click();
+        });
+        </script>
+        
+</div>
+<div class="segment-table-container">
+<h3>Prompt Segment Impact Scores</h3>
+<table id="segment-table-f0bb7f0a" class="segment-table">
+<thead>
+<tr>
+<th onclick="sort_segment_table_f0bb7f0a(0, 'numeric')" class="sortable">ID</th>
+<th onclick="sort_segment_table_f0bb7f0a(1, 'numeric')" class="sortable">Raw Impact</th>
+<th onclick="sort_segment_table_f0bb7f0a(2, 'numeric')" class="sortable">Normalized Score</th>
+<th onclick="sort_segment_table_f0bb7f0a(3, 'text')" class="sortable">Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>0.1260</td>
+<td>0.0045</td>
+<td>You are an experienced financial analyst with expe...</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>0.7860</td>
+<td>1.0000</td>
+<td>ing provider, produce a comprehensive bullet-point...</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>0.1644</td>
+<td>0.0623</td>
+<td>m/Low impact rating. Focus primarily on competitiv...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1230</td>
+<td>0.0000</td>
+<td>ain vulnerabilities. After the bullet points, prov...</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .segment-table-container {{
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }}
+        .segment-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }}
+        .segment-table th, .segment-table td {{
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }}
+        .segment-table th {{
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }}
+        .segment-table th.sortable:hover {{
+            background-color: #e5e5e5;
+        }}
+        .segment-table th.sorted-asc::after {{
+            content: " ↑";
+            font-size: 0.8em;
+        }}
+        .segment-table th.sorted-desc::after {{
+            content: " ↓";
+            font-size: 0.8em;
+        }}
+        .segment-table tr:hover {{
+            background-color: #f9f9f9;
+        }}
+        </style>
+        
+
+        <script>
+        function sort_segment_table_f0bb7f0a(columnIndex, type) {
+            const table = document.getElementById('segment-table-f0bb7f0a');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by raw impact (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('segment-table-f0bb7f0a');
+            const rawImpactHeader = table.querySelectorAll('th')[1];
+            rawImpactHeader.click();  // Initial sort by raw impact
+            rawImpactHeader.click();  // Click again to make it descending
+        });
+        </script>
+        
+</div>
+    <div style="margin-top: 20px; font-size: 0.8em; color: #666;">
+        <p>Color intensity indicates segment impact on model output.</p>
+    </div>
+</body>
+</html>

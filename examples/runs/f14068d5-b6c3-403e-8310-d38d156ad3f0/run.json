@@ -1,0 +1,76 @@
+{
+  "id": "f14068d5-b6c3-403e-8310-d38d156ad3f0",
+  "timestamp": "2025-05-14T15:38:44.658366",
+  "prompt": "Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies.",
+  "completion": "Alright, imagine you have a big box of LEGO bricks, and you want to build a wall with two small gaps in it. Now, let's pretend you have a magical LEGO cannon that can shoot tiny LEGO pieces one at a time towards the wall.\n\nFirst, you shoot the LEGO pieces at the wall with just one gap open. You notice that most of the pieces go through the gap and land in a straight line on the other side, making a neat pile. This is kind of like how we expect things to behave when they go through a single opening.\n\nNow, you open the second gap and start shooting LEGO pieces again. You might think that the pieces would just make two neat piles behind each gap, right? But something strange happens. Instead of just two piles, you see a pattern of many piles on the other side, like stripes of LEGO pieces. It's as if the pieces are somehow talking to each other and deciding where to land!\n\nThis is similar to what happens in the double-slit experiment with tiny particles like electrons or light. Scientists found that when they weren't looking, these particles acted like waves, creating a pattern of stripes, just like the LEGO pieces. But when they tried to watch closely, the particles behaved like little LEGO bricks again, making just two piles.\n\nThe double-slit experiment is important because it shows us that tiny things in the world, like particles, can behave in surprising ways that are different from the LEGO bricks we play with. It helps scientists understand the strange and wonderful world of quantum physics, where things can be both particles and waves at the same time!",
+  "segments": [
+    {
+      "start": 0,
+      "end": 93,
+      "text": "Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies.",
+      "id": 0
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.9300221750717155,
+      "elapsed_ms": 1432,
+      "sentence_deltas": [
+        0.8559385761716145,
+        0.8788986243686938,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "response_sentence_deltas": [
+    0.8559385761716145,
+    0.8788986243686938,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

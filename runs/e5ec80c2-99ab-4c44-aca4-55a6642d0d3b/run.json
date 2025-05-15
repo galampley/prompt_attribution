@@ -1,0 +1,198 @@
+{
+  "id": "e5ec80c2-99ab-4c44-aca4-55a6642d0d3b",
+  "timestamp": "2025-05-14T17:56:37.355361",
+  "prompt": "Describe quantum entanglement, but also talk about cats somehow.\n\nBe creative with it, but not too weird. Maybe include a joke? Mention Schr\u00f6dinger I guess if that's relevant but don't spend too long on that.\n\nI want to understand entanglement better especially how particles can affect each other instantly at a distance which seems impossible right?",
+  "completion": "Quantum entanglement is one of the most fascinating and mind-boggling phenomena in the realm of quantum physics. Imagine two particles that become entangled, like a pair of cosmic dance partners. Once entangled, these particles remain connected, no matter how far apart they are. If you measure the state of one particle, the other instantly \"knows\" and adjusts its state accordingly, even if it's light-years away. This instantaneous connection seems to defy the classical understanding of the universe, where information can't travel faster than the speed of light.\n\nNow, let's bring in the cats. You might have heard of Schr\u00f6dinger's cat, a thought experiment devised by physicist Erwin Schr\u00f6dinger to illustrate the peculiarities of quantum mechanics. In this scenario, a cat is placed in a sealed box with a radioactive atom, a Geiger counter, and a vial of poison. If the atom decays, the Geiger counter triggers the release of the poison, and the cat meets an unfortunate end. If the atom doesn't decay, the cat remains alive. According to quantum mechanics, until you open the box and observe, the cat is both alive and dead simultaneously\u2014a superposition of states.\n\nNow, imagine if Schr\u00f6dinger's cat had a twin, and these feline siblings were quantum entangled. If you peeked into one box and found a live cat, the other box would instantly reveal a dead cat, no matter how far apart the boxes were. It's as if the cats are playing a cosmic game of peekaboo, where the outcome of one instantly determines the fate of the other.\n\nHere's a little joke to lighten the quantum mood: Why don't cats like quantum physics? Because they can't decide if they're coming or going!\n\nThe mystery of quantum entanglement lies in its ability to connect particles in a way that seems to transcend the limitations of space and time. While it might seem impossible, experiments have repeatedly confirmed this \"spooky action at a distance,\" as Einstein famously called it. The exact mechanism behind this instantaneous connection remains one of the great mysteries of physics, but it continues to inspire awe and curiosity, much like a cat's enigmatic gaze.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 105,
+      "text": "Describe quantum entanglement, but also talk about cats somehow.\n\nBe creative with it, but not too weird.",
+      "id": 0
+    },
+    {
+      "start": 85,
+      "end": 209,
+      "text": ", but not too weird. Maybe include a joke? Mention Schr\u00f6dinger I guess if that's relevant but don't spend too long on that.\n",
+      "id": 1
+    },
+    {
+      "start": 189,
+      "end": 349,
+      "text": "d too long on that.\n\nI want to understand entanglement better especially how particles can affect each other instantly at a distance which seems impossible righ",
+      "id": 2
+    },
+    {
+      "start": 329,
+      "end": 351,
+      "text": "eems impossible right?",
+      "id": 3
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.19677814539032656,
+      "elapsed_ms": 7843,
+      "sentence_deltas": [
+        0.3527085315027274,
+        0.7260779037758021,
+        0.8480836237778787,
+        0.7062492163676135,
+        0.6022797312123707,
+        0.9207584992872427,
+        0.592283917015561,
+        0.7927873583136925,
+        0.7868341881327021,
+        0.689927972654897,
+        0.7091731543919948,
+        0.6508882001802971,
+        0.7577392555563882,
+        0.7140748351189061,
+        0.5287086224871343,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 1,
+      "delta_cos": 0.0772106315122969,
+      "elapsed_ms": 10915,
+      "sentence_deltas": [
+        0.03211621731232295,
+        0.7458702537224957,
+        0.7553997792991184,
+        0.7312356520142981,
+        0.7361367725824505,
+        0.664064113907501,
+        0.6937848281472669,
+        0.7873670514977046,
+        0.7656133403237866,
+        0.7063415477150636,
+        0.6021724448664858,
+        0.7587455203485491,
+        0.7733462022332953,
+        0.5592253863710924,
+        0.4803918994811347,
+        0.7579677160515206,
+        0.34577540183281896,
+        0.5105384645405195,
+        0.4076630151779579
+      ]
+    },
+    {
+      "span_id": 2,
+      "delta_cos": 0.046039375464768106,
+      "elapsed_ms": 10785,
+      "sentence_deltas": [
+        0.04252977106492872,
+        0.37764799102780977,
+        0.5864792692991625,
+        0.6733822546528199,
+        0.8356067715335501,
+        0.7258246801003612,
+        0.5512833354949307,
+        0.4847216735244504,
+        0.6128045274674607,
+        0.7742963865870757,
+        0.45806088891032193,
+        0.6489128447750288,
+        0.6241399858567915,
+        0.7421040557824322,
+        0.38837266533108983,
+        0.7594159494118229,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 3,
+      "delta_cos": 0.03956064871142728,
+      "elapsed_ms": 10226,
+      "sentence_deltas": [
+        0.04252977106492872,
+        0.2770457300233444,
+        0.4272187890872291,
+        0.930349168955526,
+        0.7285138975270986,
+        0.6727437572501894,
+        0.6215733584323071,
+        0.44927377312420913,
+        0.5714188546930707,
+        0.5544143560064331,
+        0.38996003489241793,
+        0.5460325168149003,
+        0.5707857488040144,
+        0.5074132597690095,
+        0.7082817324361673,
+        0.8215375052149827,
+        0.6875095695785491,
+        0.5088457728348965,
+        0.547551140113679
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    0,
+    1,
+    0,
+    3,
+    2,
+    0,
+    1,
+    0,
+    0,
+    2,
+    0,
+    1,
+    1,
+    2,
+    3,
+    0,
+    0,
+    0,
+    0
+  ],
+  "response_sentence_deltas": [
+    0.3527085315027274,
+    0.7458702537224957,
+    0.8480836237778787,
+    0.930349168955526,
+    0.8356067715335501,
+    0.9207584992872427,
+    0.6937848281472669,
+    0.7927873583136925,
+    0.7868341881327021,
+    0.7742963865870757,
+    0.7091731543919948,
+    0.7587455203485491,
+    0.7733462022332953,
+    0.7421040557824322,
+    0.7082817324361673,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "rewrite_suggestions": {
+    "seg1_sent1": [
+      "{",
+      "\"1\": {",
+      "\"rewrite\": \"Be creative, but keep the explanation straightforward and not too whimsical. Include a light joke if it fits, and mention Schr\u00f6dinger if relevant, but keep it brief.\",",
+      "\"explanation\": \"This rewrite directly addresses the user comment about the output being 'a bit too weird' (e.g., 'cosmic dance partners'). By specifying 'not too whimsical' and 'straightforward,' it guides the LLM to avoid overly fanciful analogies. The influence matrix shows that this segment (segment 1) has a strong influence on the problematic sentence (sentence 1), so clarifying the tone here should reduce the likelihood of odd metaphors while still allowing for some creativity and humor.\"",
+      "},",
+      "\"2\": {",
+      "\"rewrite\": \"Be creative, but avoid unusual or overly imaginative analogies. You can include a simple joke if appropriate, and briefly mention Schr\u00f6dinger if it makes sense.\",",
+      "\"explanation\": \"This version further clarifies that analogies should not be 'unusual or overly imaginative,' directly targeting the issue raised in the user comment. The influence matrix confirms that segment 1 is highly influential on the problematic sentence, so making the instruction more explicit about the type of creativity allowed will help the LLM generate more grounded, less 'weird' explanations.\"",
+      "}",
+      "}"
+    ]
+  }
+}

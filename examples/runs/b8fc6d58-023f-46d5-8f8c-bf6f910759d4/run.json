@@ -1,0 +1,91 @@
+{
+  "id": "b8fc6d58-023f-46d5-8f8c-bf6f910759d4",
+  "timestamp": "2025-05-14T15:47:21.485353",
+  "prompt": "### Role You are a creative pedagogue. ### Task Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies. ### Style Use simple language accessible to non-technical readers. Avoid jargon and complex terminology.",
+  "completion": "Imagine you have a big box of LEGO bricks, and you want to build a wall with two small windows in it. These windows are like the two slits in the double-slit experiment. Now, let's pretend that instead of LEGO bricks, you have tiny LEGO balls that you can throw at the wall.\n\nFirst, you throw the LEGO balls at the wall with just one window open. Behind the wall, you have a big piece of paper to see where the balls land. You notice that most of the balls go through the window and make a straight line on the paper. This is what you'd expect, right? The balls go through the window and hit the paper in a line.\n\nNow, let's open both windows and throw the LEGO balls again. You might think that the balls would just make two lines on the paper, one for each window. But here's where it gets interesting! Instead of two lines, you see a pattern of many lines, like stripes, on the paper. This is called an interference pattern.\n\nTo understand this, let's imagine the LEGO balls are like waves in the ocean. When waves pass through two openings, they spread out and meet each other on the other side. Sometimes the waves add up and make a bigger wave, and sometimes they cancel each other out and make no wave at all. This is why you see the stripe pattern on the paper.\n\nThe double-slit experiment is important because it shows us that tiny things, like light and even tiny particles, can behave like waves. It's a bit like magic because it changes how we think about the world. Just like how LEGO bricks can be used to build anything you imagine, this experiment helps scientists imagine and understand the amazing ways the universe works!",
+  "segments": [
+    {
+      "start": 0,
+      "end": 246,
+      "text": "### Role You are a creative pedagogue. ### Task Explain the significance of the double-slit experiment to a 10-year-old using LEGO analogies. ### Style Use simple language accessible to non-technical readers. Avoid jargon and complex terminology.",
+      "id": 0
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.9221698383661691,
+      "elapsed_ms": 2,
+      "sentence_deltas": [
+        0.87456811268199,
+        0.9414598036926121,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "response_sentence_deltas": [
+    0.87456811268199,
+    0.9414598036926121,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

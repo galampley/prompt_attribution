@@ -1,0 +1,7 @@
+```json
+{
+    "rewrite_1": "You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, create a detailed bullet-point risk summary (maximum 120 words) and assign a High/Medium/Low impact rating to each identified risk.",
+    "rewrite_2": "You are an experienced financial analyst with expertise in the technology sector. Based on the provided 10-K snippet from a leading cloud computing provider, generate a concise bullet-point risk summary (up to 120 words) and categorize each risk with a High/Medium/Low impact rating.",
+    "explanation": "The rewrites aim to maintain a formal tone by using terms like 'create' and 'generate' instead of 'produce,' and 'detailed' or 'concise' instead of 'comprehensive.' This aligns with the user's request for a more formal style."
+}
+```

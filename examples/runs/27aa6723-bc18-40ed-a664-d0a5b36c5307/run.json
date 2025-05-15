@@ -1,0 +1,92 @@
+{
+  "id": "27aa6723-bc18-40ed-a664-d0a5b36c5307",
+  "timestamp": "2025-05-14T16:27:40.739636",
+  "prompt": "# Data Analysis Task\n\nWrite Python 3 code that reads a CSV of e-commerce transactions and outputs the following metrics:\n\n1. Total revenue per month (bar chart)\n2. Customer retention rate by cohort (heatmap)\n3. Average order value trend over time (line chart)\n4. Top 10 products by revenue\n5. Identification of customers at risk of churn\n\nAssumptions:\n- CSV has columns: transaction_id, customer_id, date, product_id, quantity, price, country\n- Use pandas and matplotlib/seaborn\n- Include docstrings and comments\n- Handle missing values appropriately\n- Optimize for performance with large datasets\n\nThe code should be production-ready and follow PEP 8 style guidelines.",
+  "completion": "Below is a Python script that performs the requested data analysis tasks using pandas, matplotlib, and seaborn. The script includes docstrings, comments, and follows PEP 8 style guidelines.\n\n```python\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom datetime import datetime\n\ndef load_data(file_path):\n    \"\"\"\n    Load the CSV data into a pandas DataFrame.\n\n    Parameters:\n    file_path (str): The path to the CSV file.\n\n    Returns:\n    pd.DataFrame: The loaded data.\n    \"\"\"\n    try:\n        data = pd.read_csv(file_path, parse_dates=['date'])\n        return data\n    except Exception as e:\n        print(f\"Error loading data: {e}\")\n        return None\n\ndef preprocess_data(data):\n    \"\"\"\n    Preprocess the data by handling missing values and adding necessary columns.\n\n    Parameters:\n    data (pd.DataFrame): The raw data.\n\n    Returns:\n    pd.DataFrame: The preprocessed data.\n    \"\"\"\n    # Drop rows with missing values in critical columns\n    data.dropna(subset=['transaction_id', 'customer_id', 'date', 'product_id', 'quantity', 'price'], inplace=True)\n\n    # Calculate total price for each transaction\n    data['total_price'] = data['quantity'] * data['price']\n\n    return data\n\ndef total_revenue_per_month(data):\n    \"\"\"\n    Calculate and plot total revenue per month.\n\n    Parameters:\n    data (pd.DataFrame): The preprocessed data.\n    \"\"\"\n    data['month'] = data['date'].dt.to_period('M')\n    monthly_revenue = data.groupby('month')['total_price'].sum()\n\n    plt.figure(figsize=(10, 6))\n    monthly_revenue.plot(kind='bar', color='skyblue')\n    plt.title('Total Revenue per Month')\n    plt.xlabel('Month')\n    plt.ylabel('Revenue')\n    plt.xticks(rotation=45)\n    plt.tight_layout()\n    plt.show()\n\ndef customer_retention_rate(data):\n    \"\"\"\n    Calculate and plot customer retention rate by cohort.\n\n    Parameters:\n    data (pd.DataFrame): The preprocessed data.\n    \"\"\"\n    data['order_month'] = data['date'].dt.to_period('M')\n    data['cohort'] = data.groupby('customer_id')['order_month'].transform('min')\n\n    cohort_data = data.groupby(['cohort', 'order_month']).agg(n_customers=('customer_id', 'nunique')).reset_index()\n    cohort_pivot = cohort_data.pivot_table(index='cohort', columns='order_month', values='n_customers')\n\n    cohort_size = cohort_pivot.iloc[:, 0]\n    retention_matrix = cohort_pivot.divide(cohort_size, axis=0)\n\n    plt.figure(figsize=(12, 8))\n    sns.heatmap(retention_matrix, annot=True, fmt=\".0%\", cmap=\"YlGnBu\")\n    plt.title('Customer Retention Rate by Cohort')\n    plt.xlabel('Order Month')\n    plt.ylabel('Cohort Month')\n    plt.show()\n\ndef average_order_value_trend(data):\n    \"\"\"\n    Calculate and plot average order value trend over time.\n\n    Parameters:\n    data (pd.DataFrame): The preprocessed data.\n    \"\"\"\n    data['order_month'] = data['date'].dt.to_period('M')\n    monthly_aov = data.groupby('order_month').agg({'total_price': 'sum', 'transaction_id': 'nunique'})\n    monthly_aov['aov'] = monthly_aov['total_price'] / monthly_aov['transaction_id']\n\n    plt.figure(figsize=(10, 6))\n    plt.plot(monthly_aov.index.astype(str), monthly_aov['aov'], marker='o', linestyle='-')\n    plt.title('Average Order Value Trend Over Time')\n    plt.xlabel('Month')\n    plt.ylabel('Average Order Value')\n    plt.xticks(rotation=45)\n    plt.tight_layout()\n    plt.show()\n\ndef top_10_products_by_revenue(data):\n    \"\"\"\n    Identify and print the top 10 products by revenue.\n\n    Parameters:\n    data (pd.DataFrame): The preprocessed data.\n    \"\"\"\n    product_revenue = data.groupby('product_id')['total_price'].sum().sort_values(ascending=False).head(10)\n    print(\"Top 10 Products by Revenue:\")\n    print(product_revenue)\n\ndef identify_customers_at_risk(data):\n    \"\"\"\n    Identify customers at risk of churn.\n\n    Parameters:\n    data (pd.DataFrame): The preprocessed data.\n\n    Returns:\n    pd.DataFrame: Customers at risk of churn.\n    \"\"\"\n    last_purchase = data.groupby('customer_id')['date'].max()\n    current_date = data['date'].max()\n    churn_threshold = 90  # days\n\n    at_risk_customers = last_purchase[current_date - last_purchase > pd.Timedelta(days=churn_threshold)]\n   ",
+  "segments": [
+    {
+      "start": 0,
+      "end": 669,
+      "text": "# Data Analysis Task\n\nWrite Python 3 code that reads a CSV of e-commerce transactions and outputs the following metrics:\n\n1. Total revenue per month (bar chart)\n2. Customer retention rate by cohort (heatmap)\n3. Average order value trend over time (line chart)\n4. Top 10 products by revenue\n5. Identification of customers at risk of churn\n\nAssumptions:\n- CSV has columns: transaction_id, customer_id, date, product_id, quantity, price, country\n- Use pandas and matplotlib/seaborn\n- Include docstrings and comments\n- Handle missing values appropriately\n- Optimize for performance with large datasets\n\nThe code should be production-ready and follow PEP 8 style guidelines.",
+      "id": 0
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.8679508106495927,
+      "elapsed_ms": 501,
+      "sentence_deltas": [
+        0.8900526445979938,
+        0.9644449985865543,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "response_sentence_deltas": [
+    0.8900526445979938,
+    0.9644449985865543,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "rewrite_suggestions": {}
+}

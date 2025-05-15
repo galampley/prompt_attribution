@@ -1,0 +1,100 @@
+{
+  "id": "5a8cf691-f2fe-4d15-a345-f46fb4b3cb93",
+  "timestamp": "2025-05-14T15:56:47.357941",
+  "prompt": "You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, produce a comprehensive bullet-point risk summary (max 120 words) and label each identified risk with a High/Medium/Low impact rating. Focus primarily on competitive threats, regulatory challenges, and supply chain vulnerabilities. After the bullet points, provide 2-3 sentences explaining which risk you believe investors are currently underestimating the most.",
+  "completion": "- **Competitive Threats (High Impact):** Intense competition from established tech giants and emerging startups could erode market share and pressure pricing strategies.\n- **Regulatory Challenges (Medium Impact):** Increasing scrutiny and potential regulatory changes in data privacy and cross-border data transfers could lead to compliance costs and operational adjustments.\n- **Supply Chain Vulnerabilities (Medium Impact):** Dependence on a limited number of suppliers for critical hardware components may lead to disruptions and increased costs due to geopolitical tensions or natural disasters.\n\nInvestors may be underestimating the regulatory challenges, particularly in data privacy and cross-border data transfers. As global regulatory environments become more stringent, the costs and complexities of compliance could significantly impact operations and profitability, especially if new regulations are enacted swiftly.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 160,
+      "text": "You are an experienced financial analyst with expertise in the technology sector. Given the following 10-K snippet from a major cloud computing provider, produc",
+      "id": 0
+    },
+    {
+      "start": 140,
+      "end": 288,
+      "text": "ing provider, produce a comprehensive bullet-point risk summary (max 120 words) and label each identified risk with a High/Medium/Low impact rating.",
+      "id": 1
+    },
+    {
+      "start": 268,
+      "end": 385,
+      "text": "m/Low impact rating. Focus primarily on competitive threats, regulatory challenges, and supply chain vulnerabilities.",
+      "id": 2
+    },
+    {
+      "start": 365,
+      "end": 516,
+      "text": "ain vulnerabilities. After the bullet points, provide 2-3 sentences explaining which risk you believe investors are currently underestimating the most.",
+      "id": 3
+    }
+  ],
+  "ablation_results": [
+    {
+      "span_id": 0,
+      "delta_cos": 0.12602435162333325,
+      "elapsed_ms": 4289,
+      "sentence_deltas": [
+        0.12831021135969578,
+        0.1283356755554116,
+        0.13964873317470883,
+        0.620647535313558,
+        0.6566338080757556
+      ]
+    },
+    {
+      "span_id": 1,
+      "delta_cos": 0.7859798340159819,
+      "elapsed_ms": 2836,
+      "sentence_deltas": [
+        0.8737014954477057,
+        0.8105135956716445,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "span_id": 2,
+      "delta_cos": 0.16436851037293077,
+      "elapsed_ms": 4653,
+      "sentence_deltas": [
+        0.4666733390027413,
+        0.17015789626675548,
+        0.5388006671308935,
+        0.6710299322206491,
+        0.6180554940793763
+      ]
+    },
+    {
+      "span_id": 3,
+      "delta_cos": 0.12304532522140177,
+      "elapsed_ms": 3882,
+      "sentence_deltas": [
+        0.23721464528718683,
+        0.5758094803128857,
+        0.5238267554383681,
+        0.6909496237456548,
+        0.6634540520298555
+      ]
+    }
+  ],
+  "settings": {
+    "completion_model": "gpt-4o",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "response_control": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "response_sentence_deltas": [
+    0.8737014954477057,
+    0.8105135956716445,
+    1.0,
+    1.0,
+    1.0
+  ]
+}

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Attribution Comparison</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin: 0; padding: 20px; }
+        h1 { font-size: 1.5em; margin-bottom: 0.5em; }
+        h2 { font-size: 1.2em; margin-top: 1.5em; margin-bottom: 1em; }
+        h3 { font-size: 1.1em; margin-bottom: 0.5em; }
+        .comparison { display: flex; flex-direction: column; gap: 2em; }
+        @media (min-width: 1200px) { .comparison { flex-direction: row; } }
+        .method { flex: 1; }
+        .stats { margin-top: 1em; margin-bottom: 1em; background: #f5f5f5; padding: 1em; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Prompt Attribution Comparison</h1>
+    <p>This comparison shows the difference between standard and hierarchical attribution approaches.</p>
+    
+    <div class="comparison">
+        <div class="method">
+            <h2>Standard Attribution</h2>
+            <div class="stats">
+                <p><strong>Segments:</strong> 6</p>
+                <p><strong>API Calls:</strong> ~6</p>
+            </div>
+            <div class="visualization">
+                <div id="prompt-heatmap-e89ba2e8" class="prompt-heatmap">
+<style>
+.prompt-heatmap { font-family: monospace; white-space: pre-wrap; line-height: 1.5; padding: 1em; border: 1px solid #ccc; border-radius: 4px; }
+.segment { padding: 2px 0; display: inline; }
+.segment-tooltip { position: absolute; background: #f8f8f8; border: 1px solid #ddd; padding: 8px; border-radius: 4px; font-size: 12px; max-width: 300px; z-index: 100; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+</style>
+<div class="content">
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05);" title="Segment 0: Impact score 0.0000" data-score="0.0000">
+### System Context
+You are an AI assistant tasked with providing helpful, accurate, and ethical responses to user inquiries. You should always prioritize user safety and well-being in your answers.
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.5239648910952986);" title="Segment 1: Impact score 0.4989" data-score="0.4989">
+### User Context
+The user is a software developer working on a machine learning project who needs help understanding the architecture of transformer models.
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 0.7678696549507692);" title="Segment 2: Impact score 0.7557" data-score="0.7557">
+### Response Format Requirements
+- Start with a brief summary (2-3 sentences)
+- Use markdown formatting for headings and code blocks
+- Include at least one code example in Python
+- Keep the total response under 300 words
+- End with a thought-provoking question
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.6190621834301969);" title="Segment 4: Impact score 0.5990" data-score="0.5990">
+### Tone and Style
+- Professional but conversational
+- Enthusiastic about the subject matter
+- Encouraging of the user&#x27;s learning journey
+- Clear and concise explanations
+- Use analogies where helpful for complex concepts
+</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.3431083854418321);" title="Segment 5: Impact score 0.3085" data-score="0.3085">
+### Special Instructions
+- If you are unsure of any technical details, indicate that clearly
+- Do not make up information or provide potentially harmful advice
+- Encourage best practices for model training and deployment
+</span>
+</div>
+</div>
+
+        <div class="model-response-container" id="model-response-8c1a69b0">
+            <h3>
+                Model Response
+                <button class="toggle-button" onclick="toggleCollapse('collapse-model-response-8c1a69b0')">
+                    <span class="toggle-text">Hide</span>
+                </button>
+            </h3>
+            <div class="model-response-content" id="collapse-model-response-8c1a69b0">
+                <pre class="model-response">Transformer models are a type of neural network architecture that excel in handling sequential data, such as text, by using mechanisms like self-attention and positional encoding. They have revolutionized natural language processing (NLP) and are also being applied in areas like image processing and time-series forecasting.
+
+### Key Components of Transformer Models
+
+1. **Self-Attention Mechanism**: This allows the model to weigh the importance of different words in a sentence, regardless of their position, enabling it to capture long-range dependencies more effectively than traditional RNNs.
+
+2. **Positional Encoding**: Since transformers do not inherently understand the order of input data, positional encoding is added to input embeddings to provide information about the position of words in a sequence.
+
+3. **Feedforward Neural Networks**: Each layer in a transformer includes a feedforward neural network that processes the output of the self-attention mechanism.
+
+4. **Layer Normalization and Residual Connections**: These techniques help stabilize the training process and improve convergence.
+
+### Python Code Example
+
+Here&#x27;s a simple example of how you might define a self-attention mechanism in Python using PyTorch:
+
+```python
+import torch
+import torch.nn as nn
+
+class SelfAttention(nn.Module):
+    def __init__(self, embed_size, heads):
+        super(SelfAttention, self).__init__()
+        self.embed_size = embed_size
+        self.heads = heads
+        self.head_dim = embed_size // heads
+
+        assert (
+            self.head_dim * heads == embed_size
+        ), &quot;Embedding size needs to be divisible by heads&quot;
+
+        self.values = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.keys = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.queries = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.fc_out = nn.Linear(heads * self.head_dim, embed_size)
+
+    def forward(self, values, keys, query, mask):
+        N = query.shape[0]
+        value_len, key_len, query_len = values.shape[1], keys.shape[1], query.shape[1]
+
+        # Split the embedding into self.heads different pieces
+        values = values.reshape(N, value_len, self.heads, self.head_dim)
+        keys = keys.reshape(N, key_len, self.heads, self.head_dim)
+        queries = query.reshape(N, query_len, self.heads, self.head_dim)
+
+        # Calculate the attention scores
+        energy = torch.einsum(&quot;nqhd,nkhd-&gt;nhqk&quot;, [queries, keys])
+        if mask is not None:
+            energy = energy.masked_fill(mask == 0, float(&quot;-1e20&quot;))
+
+        attention = torch.softmax(energy / (self.embed_size ** (1 / 2)), dim=3)
+
+        out = torch.einsum(&quot;nhql,nlhd-&gt;nqhd&quot;, [attention, values]).reshape(
+            N, query_len, self.heads * self.head_dim
+        )
+
+        return self.fc_out(out)
+```
+
+### Applications
+
+Transformers are widely used in NLP tasks like language translation and text summarization. They are also being adapted for image classification and even protein structure prediction.
+
+How might you apply transformer models to a problem you&#x27;re currently working on?</pre>
+            </div>
+        </div>
+        
+        <style>
+        .model-response-container {
+            margin: 1.5em 0;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .model-response-container h3 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .model-response {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .toggle-button {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .toggle-button:hover {
+            background-color: #e5e5e5;
+        }
+        </style>
+        
+        <script>
+        function toggleCollapse(id) {
+            const element = document.getElementById(id);
+            const button = element.previousElementSibling.querySelector('.toggle-button');
+            const textSpan = button.querySelector('.toggle-text');
+            
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+                textSpan.textContent = 'Hide';
+            } else {
+                element.style.display = 'none';
+                textSpan.textContent = 'Show';
+            }
+        }
+        </script>
+        
+<div class="segment-table-container">
+<h3>Segment Impact Scores</h3>
+<table id="segment-table-54904f83" class="segment-table">
+<thead>
+<tr>
+<th onclick="sortTable(0, 'numeric')" class="sortable">ID</th>
+<th onclick="sortTable(1, 'numeric')" class="sortable">Raw Impact</th>
+<th onclick="sortTable(2, 'numeric')" class="sortable">Normalized Score</th>
+<th onclick="sortTable(3, 'text')" class="sortable">Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>0.0823</td>
+<td>0.0000</td>
+<td> ### System Context You are an AI assistant tasked...</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>0.1106</td>
+<td>0.4989</td>
+<td> ### User Context The user is a software developer...</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>0.1252</td>
+<td>0.7557</td>
+<td> ### Response Format Requirements - Start with a b...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="4">
+<td>4</td>
+<td>0.1163</td>
+<td>0.5990</td>
+<td> ### Tone and Style - Professional but conversatio...</td>
+</tr>
+<tr data-id="5">
+<td>5</td>
+<td>0.0998</td>
+<td>0.3085</td>
+<td> ### Special Instructions - If you are unsure of a...</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .segment-table-container {
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .segment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }
+        .segment-table th, .segment-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .segment-table th {
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }
+        .segment-table th.sortable:hover {
+            background-color: #e5e5e5;
+        }
+        .segment-table th.sorted-asc::after {
+            content: " ↑";
+            font-size: 0.8em;
+        }
+        .segment-table th.sorted-desc::after {
+            content: " ↓";
+            font-size: 0.8em;
+        }
+        .segment-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        </style>
+        
+
+        <script>
+        function sortTable(columnIndex, type) {
+            const table = document.getElementById('segment-table-54904f83');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by raw impact (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('segment-table-54904f83');
+            const rawImpactHeader = table.querySelectorAll('th')[1];
+            rawImpactHeader.click();  // Initial sort by raw impact
+            rawImpactHeader.click();  // Click again to make it descending
+        });
+        </script>
+        
+</div>
+            </div>
+        </div>
+        
+        <div class="method">
+            <h2>Hierarchical Attribution</h2>
+            <div class="stats">
+                <p><strong>Segments:</strong> 7</p>
+                <p><strong>API Calls:</strong> 7</p>
+                <p><strong>API Call Reduction:</strong> -16.7%</p>
+            </div>
+            <div class="visualization">
+                <div id="prompt-heatmap-473acb9e" class="prompt-heatmap">
+<style>
+.prompt-heatmap { font-family: monospace; white-space: pre-wrap; line-height: 1.5; padding: 1em; border: 1px solid #ccc; border-radius: 4px; }
+.segment { padding: 2px 0; display: inline; }
+.segment-tooltip { position: absolute; background: #f8f8f8; border: 1px solid #ddd; padding: 8px; border-radius: 4px; font-size: 12px; max-width: 300px; z-index: 100; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+</style>
+<div class="content">
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05);" title="Segment 0: Impact score 0.0000" data-score="0.0000">
+### System Context
+You are an AI assistant tasked with providing helpful, accurate, and ethical responses to user inquiries. You should always prioritize user safety and well-being in your answers.
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.5239648910952986);" title="Segment 1: Impact score 0.4989" data-score="0.4989">
+### User Context
+The user is a software developer working on a machine learning project who needs help understanding the architecture of transformer models.
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 0.7678696549507692);" title="Segment 2: Impact score 0.7557" data-score="0.7557">
+### Response Format Requirements
+- Start with a brief summary (2-3 sentences)
+- Use markdown formatting for headings and code blocks
+- Include at least one code example in Python
+- Keep the total response under 300 words
+- End with a thought-provoking question
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.6190621834301969);" title="Segment 4: Impact score 0.5990" data-score="0.5990">
+### Tone and Style
+- Professional but conversational
+- Enthusiastic about the subject matter
+- Encouraging of the user&#x27;s learning journey
+- Clear and concise explanations
+- Use analogies where helpful for complex concepts
+</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.3431083854418321);" title="Segment 5: Impact score 0.3085" data-score="0.3085">
+### Special Instructions
+- If you are unsure of any technical details, indicate that clearly
+- Do not make up information or provide potentially harmful advice
+- Encourage best practices for model training and deployment
+</span>
+</div>
+</div>
+
+        <div class="model-response-container" id="model-response-65fda037">
+            <h3>
+                Model Response
+                <button class="toggle-button" onclick="toggleCollapse('collapse-model-response-65fda037')">
+                    <span class="toggle-text">Hide</span>
+                </button>
+            </h3>
+            <div class="model-response-content" id="collapse-model-response-65fda037">
+                <pre class="model-response">Transformer models are a type of neural network architecture that excel in handling sequential data, such as text, by using mechanisms like self-attention and positional encoding. They have revolutionized natural language processing (NLP) and are also being applied in areas like image processing and time-series forecasting.
+
+### Key Components of Transformer Models
+
+1. **Self-Attention Mechanism**: This allows the model to weigh the importance of different words in a sentence, regardless of their position, enabling it to capture long-range dependencies more effectively than traditional RNNs.
+
+2. **Positional Encoding**: Since transformers do not inherently understand the order of input data, positional encoding is added to input embeddings to provide information about the position of words in a sequence.
+
+3. **Feedforward Neural Networks**: Each layer in a transformer includes a feedforward neural network that processes the output of the self-attention mechanism.
+
+4. **Layer Normalization and Residual Connections**: These techniques help stabilize the training process and improve convergence.
+
+### Python Code Example
+
+Here&#x27;s a simple example of how you might define a self-attention mechanism in Python using PyTorch:
+
+```python
+import torch
+import torch.nn as nn
+
+class SelfAttention(nn.Module):
+    def __init__(self, embed_size, heads):
+        super(SelfAttention, self).__init__()
+        self.embed_size = embed_size
+        self.heads = heads
+        self.head_dim = embed_size // heads
+
+        assert (
+            self.head_dim * heads == embed_size
+        ), &quot;Embedding size needs to be divisible by heads&quot;
+
+        self.values = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.keys = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.queries = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.fc_out = nn.Linear(heads * self.head_dim, embed_size)
+
+    def forward(self, values, keys, query, mask):
+        N = query.shape[0]
+        value_len, key_len, query_len = values.shape[1], keys.shape[1], query.shape[1]
+
+        # Split the embedding into self.heads different pieces
+        values = values.reshape(N, value_len, self.heads, self.head_dim)
+        keys = keys.reshape(N, key_len, self.heads, self.head_dim)
+        queries = query.reshape(N, query_len, self.heads, self.head_dim)
+
+        # Calculate the attention scores
+        energy = torch.einsum(&quot;nqhd,nkhd-&gt;nhqk&quot;, [queries, keys])
+        if mask is not None:
+            energy = energy.masked_fill(mask == 0, float(&quot;-1e20&quot;))
+
+        attention = torch.softmax(energy / (self.embed_size ** (1 / 2)), dim=3)
+
+        out = torch.einsum(&quot;nhql,nlhd-&gt;nqhd&quot;, [attention, values]).reshape(
+            N, query_len, self.heads * self.head_dim
+        )
+
+        return self.fc_out(out)
+```
+
+### Applications
+
+Transformers are widely used in NLP tasks like language translation and text summarization. They are also being adapted for image classification and even protein structure prediction.
+
+How might you apply transformer models to a problem you&#x27;re currently working on?</pre>
+            </div>
+        </div>
+        
+        <style>
+        .model-response-container {
+            margin: 1.5em 0;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .model-response-container h3 {
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .model-response {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 0;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .toggle-button {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .toggle-button:hover {
+            background-color: #e5e5e5;
+        }
+        </style>
+        
+        <script>
+        function toggleCollapse(id) {
+            const element = document.getElementById(id);
+            const button = element.previousElementSibling.querySelector('.toggle-button');
+            const textSpan = button.querySelector('.toggle-text');
+            
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+                textSpan.textContent = 'Hide';
+            } else {
+                element.style.display = 'none';
+                textSpan.textContent = 'Show';
+            }
+        }
+        </script>
+        
+<div class="segment-table-container">
+<h3>Segment Impact Scores</h3>
+<table id="segment-table-970d8dde" class="segment-table">
+<thead>
+<tr>
+<th onclick="sortTable(0, 'numeric')" class="sortable">ID</th>
+<th onclick="sortTable(1, 'numeric')" class="sortable">Raw Impact</th>
+<th onclick="sortTable(2, 'numeric')" class="sortable">Normalized Score</th>
+<th onclick="sortTable(3, 'text')" class="sortable">Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>0.0823</td>
+<td>0.0000</td>
+<td> ### System Context You are an AI assistant tasked...</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>0.1106</td>
+<td>0.4989</td>
+<td> ### User Context The user is a software developer...</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>0.1252</td>
+<td>0.7557</td>
+<td> ### Response Format Requirements - Start with a b...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="4">
+<td>4</td>
+<td>0.1163</td>
+<td>0.5990</td>
+<td> ### Tone and Style - Professional but conversatio...</td>
+</tr>
+<tr data-id="5">
+<td>5</td>
+<td>0.0998</td>
+<td>0.3085</td>
+<td> ### Special Instructions - If you are unsure of a...</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .segment-table-container {
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .segment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }
+        .segment-table th, .segment-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .segment-table th {
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }
+        .segment-table th.sortable:hover {
+            background-color: #e5e5e5;
+        }
+        .segment-table th.sorted-asc::after {
+            content: " ↑";
+            font-size: 0.8em;
+        }
+        .segment-table th.sorted-desc::after {
+            content: " ↓";
+            font-size: 0.8em;
+        }
+        .segment-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        </style>
+        
+
+        <script>
+        function sortTable(columnIndex, type) {
+            const table = document.getElementById('segment-table-970d8dde');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by raw impact (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('segment-table-970d8dde');
+            const rawImpactHeader = table.querySelectorAll('th')[1];
+            rawImpactHeader.click();  // Initial sort by raw impact
+            rawImpactHeader.click();  // Click again to make it descending
+        });
+        </script>
+        
+</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 2em; font-size: 0.8em; color: #666;">
+        <p>Color intensity indicates segment impact on model output.</p>
+    </div>
+</body>
+</html>

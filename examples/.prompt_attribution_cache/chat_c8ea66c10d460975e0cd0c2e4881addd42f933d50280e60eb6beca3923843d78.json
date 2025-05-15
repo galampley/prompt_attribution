@@ -1,0 +1,123 @@
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+def load_data(file_path):
+    """
+    Load the CSV data into a pandas DataFrame.
+    
+    :param file_path: str, path to the CSV file
+    :return: DataFrame
+    """
+    try:
+        df = pd.read_csv(file_path, parse_dates=['date'])
+        return df
+    except Exception as e:
+        print(f"Error loading data: {e}")
+        return None
+
+def preprocess_data(df):
+    """
+    Preprocess the data by handling missing values and adding necessary columns.
+    
+    :param df: DataFrame, raw data
+    :return: DataFrame, preprocessed data
+    """
+    # Drop rows with missing values in critical columns
+    df.dropna(subset=['transaction_id', 'customer_id', 'date', 'product_id', 'quantity', 'price'], inplace=True)
+    
+    # Calculate total revenue for each transaction
+    df['revenue'] = df['quantity'] * df['price']
+    
+    return df
+
+def total_revenue_per_month(df):
+    """
+    Calculate and plot total revenue per month.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    df['month'] = df['date'].dt.to_period('M')
+    monthly_revenue = df.groupby('month')['revenue'].sum()
+    
+    plt.figure(figsize=(10, 6))
+    monthly_revenue.plot(kind='bar', color='skyblue')
+    plt.title('Total Revenue per Month')
+    plt.xlabel('Month')
+    plt.ylabel('Revenue')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def customer_retention_rate_by_cohort(df):
+    """
+    Calculate and plot customer retention rate by cohort.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    df['order_month'] = df['date'].dt.to_period('M')
+    df['cohort'] = df.groupby('customer_id')['order_month'].transform('min')
+    
+    cohort_data = df.groupby(['cohort', 'order_month']).agg(n_customers=('customer_id', 'nunique')).reset_index()
+    cohort_pivot = cohort_data.pivot_table(index='cohort', columns='order_month', values='n_customers')
+    
+    cohort_size = cohort_pivot.iloc[:, 0]
+    retention_matrix = cohort_pivot.divide(cohort_size, axis=0)
+    
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(retention_matrix, annot=True, fmt=".0%", cmap="YlGnBu")
+    plt.title('Customer Retention Rate by Cohort')
+    plt.xlabel('Order Month')
+    plt.ylabel('Cohort Month')
+    plt.show()
+
+def average_order_value_trend(df):
+    """
+    Calculate and plot average order value trend over time.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    df['order_month'] = df['date'].dt.to_period('M')
+    aov_trend = df.groupby('order_month').agg(total_revenue=('revenue', 'sum'), total_orders=('transaction_id', 'nunique'))
+    aov_trend['aov'] = aov_trend['total_revenue'] / aov_trend['total_orders']
+    
+    plt.figure(figsize=(10, 6))
+    aov_trend['aov'].plot(kind='line', marker='o', color='purple')
+    plt.title('Average Order Value Trend Over Time')
+    plt.xlabel('Month')
+    plt.ylabel('Average Order Value')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def top_10_products_by_revenue(df):
+    """
+    Identify and print the top 10 products by revenue.
+    
+    :param df: DataFrame, preprocessed data
+    """
+    product_revenue = df.groupby('product_id')['revenue'].sum().sort_values(ascending=False).head(10)
+    print("Top 10 Products by Revenue:")
+    print(product_revenue)
+
+def identify_customers_at_risk_of_churn(df):
+    """
+    Identify customers at risk of churn based on their last purchase date.
+    
+    :param df: DataFrame, preprocessed data
+    :return: DataFrame, customers at risk of churn
+    """
+    current_date = df['date'].max()
+    last_purchase = df.groupby('customer_id')['date'].max()
+    churn_threshold = current_date - pd.DateOffset(months=3)
+    at_risk_customers = last_purchase[last_purchase < churn_threshold].index
+    
+    print("Customers at Risk of Churn:")
+    print(at_risk_customers)
+    return at_risk_customers
+
+def main(file_path):
+    """
+    Main function to

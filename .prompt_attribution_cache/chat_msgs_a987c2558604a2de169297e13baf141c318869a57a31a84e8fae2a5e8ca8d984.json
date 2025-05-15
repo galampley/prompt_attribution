@@ -1,0 +1,19 @@
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+def load_data(file_path):
+    """Load CSV data into a pandas DataFrame."""
+```
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+def load_data(file_path):
+    """Read CSV data into a pandas DataFrame."""
+```

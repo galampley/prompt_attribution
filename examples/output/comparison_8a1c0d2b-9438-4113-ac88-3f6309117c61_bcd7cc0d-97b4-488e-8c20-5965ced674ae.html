@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Attribution Comparison</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin: 0; padding: 20px; }
+        h1 { font-size: 1.5em; margin-bottom: 0.5em; }
+        h2 { font-size: 1.2em; margin-top: 1.5em; margin-bottom: 1em; }
+        h3 { font-size: 1.1em; margin-bottom: 0.5em; }
+        .comparison { display: flex; flex-direction: column; gap: 2em; }
+        @media (min-width: 1200px) { .comparison { flex-direction: row; } }
+        .method { flex: 1; }
+        .stats { margin-top: 1em; margin-bottom: 1em; background: #f5f5f5; padding: 1em; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Prompt Attribution Comparison</h1>
+    <p>This comparison shows the difference between standard and hierarchical attribution approaches.</p>
+    
+    <div class="comparison">
+        <div class="method">
+            <h2>Standard Attribution</h2>
+            <div class="stats">
+                <p><strong>Segments:</strong> 6</p>
+                <p><strong>API Calls:</strong> ~6</p>
+            </div>
+            <div class="visualization">
+                <div id="prompt-heatmap-1338ab34" class="prompt-heatmap">
+<style>
+.prompt-heatmap { font-family: monospace; white-space: pre-wrap; line-height: 1.5; padding: 1em; border: 1px solid #ccc; border-radius: 4px; }
+.segment { padding: 2px 0; display: inline; }
+.segment-tooltip { position: absolute; background: #f8f8f8; border: 1px solid #ddd; padding: 8px; border-radius: 4px; font-size: 12px; max-width: 300px; z-index: 100; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+</style>
+<div class="content">
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05);" title="Segment 0: Impact score 0.0000" data-score="0.0000">
+### System Context
+You are an AI assistant tasked with providing helpful, accurate, and ethical responses to user inquiries. You should always prioritize user safety and well-being in your answers.
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.5239648910952986);" title="Segment 1: Impact score 0.4989" data-score="0.4989">
+### User Context
+The user is a software developer working on a machine learning project who needs help understanding the architecture of transformer models.
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 0.7678696549507692);" title="Segment 2: Impact score 0.7557" data-score="0.7557">
+### Response Format Requirements
+- Start with a brief summary (2-3 sentences)
+- Use markdown formatting for headings and code blocks
+- Include at least one code example in Python
+- Keep the total response under 300 words
+- End with a thought-provoking question
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.6190621834301969);" title="Segment 4: Impact score 0.5990" data-score="0.5990">
+### Tone and Style
+- Professional but conversational
+- Enthusiastic about the subject matter
+- Encouraging of the user&#x27;s learning journey
+- Clear and concise explanations
+- Use analogies where helpful for complex concepts
+</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.3431083854418321);" title="Segment 5: Impact score 0.3085" data-score="0.3085">
+### Special Instructions
+- If you are unsure of any technical details, indicate that clearly
+- Do not make up information or provide potentially harmful advice
+- Encourage best practices for model training and deployment
+</span>
+</div>
+</div>
+<div class="segment-table-container">
+<h3>Segment Impact Scores</h3>
+<table id="segment-table-ec63db3c" class="segment-table">
+<thead>
+<tr>
+<th onclick="sortTable(0, 'numeric')" class="sortable">ID</th>
+<th onclick="sortTable(1, 'numeric')" class="sortable">Raw Impact</th>
+<th onclick="sortTable(2, 'numeric')" class="sortable">Normalized Score</th>
+<th onclick="sortTable(3, 'text')" class="sortable">Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>0.0823</td>
+<td>0.0000</td>
+<td> ### System Context You are an AI assistant tasked...</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>0.1106</td>
+<td>0.4989</td>
+<td> ### User Context The user is a software developer...</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>0.1252</td>
+<td>0.7557</td>
+<td> ### Response Format Requirements - Start with a b...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="4">
+<td>4</td>
+<td>0.1163</td>
+<td>0.5990</td>
+<td> ### Tone and Style - Professional but conversatio...</td>
+</tr>
+<tr data-id="5">
+<td>5</td>
+<td>0.0998</td>
+<td>0.3085</td>
+<td> ### Special Instructions - If you are unsure of a...</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .segment-table-container {
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .segment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }
+        .segment-table th, .segment-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .segment-table th {
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }
+        .segment-table th.sortable:hover {
+            background-color: #e5e5e5;
+        }
+        .segment-table th.sorted-asc::after {
+            content: " ↑";
+            font-size: 0.8em;
+        }
+        .segment-table th.sorted-desc::after {
+            content: " ↓";
+            font-size: 0.8em;
+        }
+        .segment-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        </style>
+        
+
+        <script>
+        function sortTable(columnIndex, type) {
+            const table = document.getElementById('segment-table-ec63db3c');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by raw impact (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('segment-table-ec63db3c');
+            const rawImpactHeader = table.querySelectorAll('th')[1];
+            rawImpactHeader.click();  // Initial sort by raw impact
+            rawImpactHeader.click();  // Click again to make it descending
+        });
+        </script>
+        
+</div>
+            </div>
+        </div>
+        
+        <div class="method">
+            <h2>Hierarchical Attribution</h2>
+            <div class="stats">
+                <p><strong>Segments:</strong> 7</p>
+                <p><strong>API Calls:</strong> 7</p>
+                <p><strong>API Call Reduction:</strong> -16.7%</p>
+            </div>
+            <div class="visualization">
+                <div id="prompt-heatmap-c066da49" class="prompt-heatmap">
+<style>
+.prompt-heatmap { font-family: monospace; white-space: pre-wrap; line-height: 1.5; padding: 1em; border: 1px solid #ccc; border-radius: 4px; }
+.segment { padding: 2px 0; display: inline; }
+.segment-tooltip { position: absolute; background: #f8f8f8; border: 1px solid #ddd; padding: 8px; border-radius: 4px; font-size: 12px; max-width: 300px; z-index: 100; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+</style>
+<div class="content">
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.05);" title="Segment 0: Impact score 0.0000" data-score="0.0000">
+### System Context
+You are an AI assistant tasked with providing helpful, accurate, and ethical responses to user inquiries. You should always prioritize user safety and well-being in your answers.
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.5239648910952986);" title="Segment 1: Impact score 0.4989" data-score="0.4989">
+### User Context
+The user is a software developer working on a machine learning project who needs help understanding the architecture of transformer models.
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 0.7678696549507692);" title="Segment 2: Impact score 0.7557" data-score="0.7557">
+### Response Format Requirements
+- Start with a brief summary (2-3 sentences)
+- Use markdown formatting for headings and code blocks
+- Include at least one code example in Python
+- Keep the total response under 300 words
+- End with a thought-provoking question
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 0, 0, 1.0);" title="Segment 3: Impact score 1.0000" data-score="1.0000">
+### Content Guidelines
+- Use technical terms but briefly explain specialized concepts
+- Focus on practical explanations rather than theoretical details
+- Mention at least 2 specific applications of transformer models
+- Avoid discussing specific commercial products or services
+- Do not reference your own capabilities or limitations
+</span>
+<span class="segment" style="background-color: rgba(255, 165, 0, 0.6190621834301969);" title="Segment 4: Impact score 0.5990" data-score="0.5990">
+### Tone and Style
+- Professional but conversational
+- Enthusiastic about the subject matter
+- Encouraging of the user&#x27;s learning journey
+- Clear and concise explanations
+- Use analogies where helpful for complex concepts
+</span>
+<span class="segment" style="background-color: rgba(0, 0, 255, 0.3431083854418321);" title="Segment 5: Impact score 0.3085" data-score="0.3085">
+### Special Instructions
+- If you are unsure of any technical details, indicate that clearly
+- Do not make up information or provide potentially harmful advice
+- Encourage best practices for model training and deployment
+</span>
+</div>
+</div>
+<div class="segment-table-container">
+<h3>Segment Impact Scores</h3>
+<table id="segment-table-1ba27a80" class="segment-table">
+<thead>
+<tr>
+<th onclick="sortTable(0, 'numeric')" class="sortable">ID</th>
+<th onclick="sortTable(1, 'numeric')" class="sortable">Raw Impact</th>
+<th onclick="sortTable(2, 'numeric')" class="sortable">Normalized Score</th>
+<th onclick="sortTable(3, 'text')" class="sortable">Preview</th>
+</tr>
+</thead>
+<tbody>
+<tr data-id="0">
+<td>0</td>
+<td>0.0823</td>
+<td>0.0000</td>
+<td> ### System Context You are an AI assistant tasked...</td>
+</tr>
+<tr data-id="1">
+<td>1</td>
+<td>0.1106</td>
+<td>0.4989</td>
+<td> ### User Context The user is a software developer...</td>
+</tr>
+<tr data-id="2">
+<td>2</td>
+<td>0.1252</td>
+<td>0.7557</td>
+<td> ### Response Format Requirements - Start with a b...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="3">
+<td>3</td>
+<td>0.1391</td>
+<td>1.0000</td>
+<td> ### Content Guidelines - Use technical terms but ...</td>
+</tr>
+<tr data-id="4">
+<td>4</td>
+<td>0.1163</td>
+<td>0.5990</td>
+<td> ### Tone and Style - Professional but conversatio...</td>
+</tr>
+<tr data-id="5">
+<td>5</td>
+<td>0.0998</td>
+<td>0.3085</td>
+<td> ### Special Instructions - If you are unsure of a...</td>
+</tr>
+</tbody>
+</table>
+
+        <style>
+        .segment-table-container {
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .segment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5em;
+            font-size: 14px;
+        }
+        .segment-table th, .segment-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .segment-table th {
+            background-color: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }
+        .segment-table th.sortable:hover {
+            background-color: #e5e5e5;
+        }
+        .segment-table th.sorted-asc::after {
+            content: " ↑";
+            font-size: 0.8em;
+        }
+        .segment-table th.sorted-desc::after {
+            content: " ↓";
+            font-size: 0.8em;
+        }
+        .segment-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        </style>
+        
+
+        <script>
+        function sortTable(columnIndex, type) {
+            const table = document.getElementById('segment-table-1ba27a80');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Get the current sort direction
+            const th = table.querySelectorAll('th')[columnIndex];
+            const currentDir = th.getAttribute('data-sort') || 'asc';
+            const newDir = currentDir === 'asc' ? 'desc' : 'asc';
+            
+            // Update all headers to remove sort indicators
+            table.querySelectorAll('th').forEach(header => {
+                header.removeAttribute('data-sort');
+                header.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            
+            // Set the new sort direction
+            th.setAttribute('data-sort', newDir);
+            th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            
+            // Sort the rows
+            rows.sort((a, b) => {
+                let aValue = a.cells[columnIndex].textContent;
+                let bValue = b.cells[columnIndex].textContent;
+                
+                if (type === 'numeric') {
+                    aValue = parseFloat(aValue);
+                    bValue = parseFloat(bValue);
+                }
+                
+                if (aValue < bValue) return newDir === 'asc' ? -1 : 1;
+                if (aValue > bValue) return newDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            // Re-append rows in the new order
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        
+        // Sort by raw impact (descending) on load
+        window.addEventListener('load', function() {
+            const table = document.getElementById('segment-table-1ba27a80');
+            const rawImpactHeader = table.querySelectorAll('th')[1];
+            rawImpactHeader.click();  // Initial sort by raw impact
+            rawImpactHeader.click();  // Click again to make it descending
+        });
+        </script>
+        
+</div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 2em; font-size: 0.8em; color: #666;">
+        <p>Color intensity indicates segment impact on model output.</p>
+    </div>
+</body>
+</html>
