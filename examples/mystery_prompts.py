@@ -47,7 +47,7 @@ async def run_comparison(case_id: str = "P-01", mode: str = "hierarchical"):
     segments = segmenter.segment(prompt_text)
     
     results = {}
-    output_dir = Path("output")
+    output_dir = Path("examples/output")
     output_dir.mkdir(exist_ok=True)
     viz = HeatmapVisualizer(color_scheme="gradient")
     

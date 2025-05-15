@@ -88,7 +88,7 @@ class RunManager:
             base_dir: Base directory for storing runs
         """
         settings = get_settings()
-        self.base_dir = Path(base_dir) if base_dir else Path("runs")
+        self.base_dir = Path(base_dir) if base_dir else Path("examples/runs")
         os.makedirs(self.base_dir, exist_ok=True)
     
     def create_run(self, prompt: str, completion: str, segments: List[Span]) -> Run:
